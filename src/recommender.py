@@ -81,6 +81,11 @@ def load_songs(csv_path: str) -> List[Dict]:
     return songs
 
 
+def max_score() -> float:
+    """Return the highest score a song can earn under the current weights."""
+    return MOOD_POINTS + GENRE_POINTS + ENERGY_POINTS + ACOUSTIC_POINTS
+
+
 def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
     """Score one song against user preferences, returning (score, reasons)."""
     score = 0.0
