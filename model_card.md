@@ -21,16 +21,11 @@ Prompts:
 
 ## 3. How the Model Works  
 
-Explain your scoring approach in simple language.  
+The recommender compares every song in the catalog to one listener's taste profile and gives each song a score out of 6 points. A song earns 2 points if its mood matches the mood the listener wants, and 1 point if its genre matches. It earns up to 2 more points for how close its energy is to the listener's target, so a calm song scores high for someone who wants calm music and low for someone who wants a workout. Finally, it earns 1 point if its sound is acoustic and the listener likes acoustic music, or if it is not acoustic and the listener doesn't.
 
-Prompts:  
+The songs are then sorted from highest score to lowest, and the top five are shown. Each one comes with the reasons that earned it points, such as "mood match: chill (+2.0)", so you can see why it was picked. Tempo, valence and danceability are loaded from the data but are not used in the score yet.
 
-- What features of each song are used (genre, energy, mood, etc.)  
-- What user preferences are considered  
-- How does the model turn those into a score  
-- What changes did you make from the starter logic  
-
-Avoid code here. Pretend you are explaining the idea to a friend who does not program.
+This system has no data about other listeners, so unlike Spotify or YouTube it can only recommend songs that look like what the user says they want. It can't discover surprising favorites from what similar people played.
 
 ---
 
